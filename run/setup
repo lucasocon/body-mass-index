@@ -1,0 +1,19 @@
+#!/usr/bin/env sh
+
+# Set up Rails app. Run this script immediately after cloning the codebase.
+# https://github.com/thoughtbot/guides/tree/master/protocol
+
+# Exit if any subcommand fails
+set -e
+
+bundle install
+
+# Set up database and add any development seed data
+bundle exec rake db:drop db:create
+bundle exec rake db:migrate
+
+bundle exec rake db:drop    RAILS_ENV=test
+bundle exec rake db:create  RAILS_ENV=test
+bundle exec rake db:migrate RAILS_ENV=test
+
+bundle exec rake db:seed

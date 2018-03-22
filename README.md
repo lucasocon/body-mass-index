@@ -1,24 +1,40 @@
-# README
+### Initial Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Just run the self-setup script
 
-Things you may want to cover:
+```
+chmod u+x run/setup
+run/setup
+```
 
-* Ruby version
 
-* System dependencies
+### Scripts
 
-* Configuration
+The project is using Ruby 2.4.1:
 
-* Database creation
+```
+    rvm install ruby-2.4.1
 
-* Database initialization
+```
 
-* How to run the test suite
+This repository comes equipped with a self-setup script:
 
-* Services (job queues, cache servers, search engines, etc.)
+```
+    chmod u+x run/setup
+    run/setup
+```
 
-* Deployment instructions
+Make sure bundle is up to date:
 
-* ...
+```
+    bundle install
+```
+
+To start your web server:
+
+```
+    chmod u+x run/setup
+    bin/server
+```
+
+If you want to be able to use `binding.pry` with your server, you must run the processes within Procfile in different terminal windows/tabs/processes (`bin/server` uses `foreman`, which doesn't play nice with `pry`)
