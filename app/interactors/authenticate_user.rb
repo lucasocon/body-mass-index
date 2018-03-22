@@ -12,6 +12,6 @@ class AuthenticateUser
 
   def user
     aux = User.find_by_email(context.email)
-    return (aux && aux.authenticate(context.password))
+    (aux && aux.authenticate(context.password))
   end
 end
