@@ -1,25 +1,19 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :null_session
 
-  protected 
+  protected
+
   def require_signed_in
-    if current_user.nil?
-      redirect_to access_path
-    end
+    redirect_to access_path if current_user.nil?
   end
 
   def current_user
-    if valid_token?
-      return User.find(decoded_token.fetch('user_id'))
-    end
-
+    return User.find(decoded_token.fetch('user_id')) if valid_token?
     nil
   end
 
   def validate_session
-    unless current_user.nil?
-      redirect_to root_path
-    end
+    redirect_to root_path unless current_user.nil?
   end
 
   def forget_session
@@ -27,23 +21,18 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
   def valid_token?
     token = decoded_token
-    if token 
-      return (token.fetch('exp') > now)
-    end 
-
+    return (token.fetch('exp') > now) if token
     false
   end
 
   def decoded_token
-    if !session[:auth_token].nil?
-      return JsonWebToken.decode(session[:auth_token])
-    end
-
+    return JsonWebToken.decode(session[:auth_token]) if session[:auth_token].present?
     false
   end
-  
+
   def now
     Time.now.to_i
   end
