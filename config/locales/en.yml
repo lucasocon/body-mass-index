@@ -1,0 +1,7 @@
+en:
+  users: 
+    errors: 
+      authentication: 'The combination of email / password is incorrect'
+      creation: ''
+    alerts: 
+      sign_in: 'Welcome to BMI calculator, %{name}!'

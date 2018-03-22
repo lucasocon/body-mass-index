@@ -1,0 +1,11 @@
+development: &default
+  adapter: postgresql
+  encoding: unicode
+  database: challenge_development
+  username: example_user
+  password: <%= ENV['DB_PASSWORD'] %>
+  host: localhost
+
+test: &test
+  <<: *default
+  database: challenge_test

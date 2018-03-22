@@ -1,0 +1,37 @@
+body {
+  background-color: #f2f2f2;
+  height: 100vh;
+}
+.uk-container > :first-child {
+  width: 70%;
+  margin: auto;
+  margin-top: 80px;
+}
+
+p.uk-margin > :last-child {
+  margin-left: 15px;
+}
+
+div.margin {
+  margin-top: 30px;
+}
+
+h1.bmi {
+  margin-top: 20px;
+  font-size: 8rem;
+  text-align: center;
+}
+
+img.bmi {
+  width: 200px;
+  height: 180px;
+}
+
+div.centering {
+  text-align: center;
+}
+
+p.related-category {
+  text-align: center;
+  font-style: italic;
+}
