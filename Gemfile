@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+ruby "2.4.1"
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -17,7 +18,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'react_on_rails', '10.0.2'
 gem 'mini_racer', platforms: :ruby
 gem 'slim'
-gem 'bcrypt' 
+gem 'bcrypt'
 gem 'jwt'
 gem "interactor", "~> 3.0"
 
